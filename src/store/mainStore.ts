@@ -1,3 +1,4 @@
+import { VFS } from '@/utils/VFS.js'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -8,6 +9,9 @@ interface Command {
 
 export const useMainStore = defineStore('MainStore', () => {
   const commands = ref<Command[]>([])
+  const fs = new VFS()
+  const nowDir = ref('/')
+  const username = ref('huan_kong')
 
-  return { commands }
+  return { commands, fs, nowDir, username }
 })
